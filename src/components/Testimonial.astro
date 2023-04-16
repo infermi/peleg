@@ -1,0 +1,73 @@
+---
+import Star from "./Star.astro";
+
+const reviews = [
+  {
+    name: "ליאור מלה",
+    stars: 5,
+    image: "/reviews/1.png",
+    text: `אין דברים כמוך! איזה יחס! איזה בנאדם! הכלב שלי לא רצה לחזור אליי אחרי שהוא חזר
+ממנו, שמתי אותו אצלי והייתי בראש שקט,קיבלתי סרטונים ועדכונים כשביקשתי ובאמת
+סמכתי עליו במאה אחוז,ממליצה בחום מכל הלב`,
+  },
+  {
+    name: "ליאור מזור",
+    stars: 5,
+    image: "/reviews/2.png",
+    text: `אליקו בחור נהדר, טיפל בבובי במסירות ואהבה`,
+  },
+  {
+    name: "סמדר ורוציק",
+    stars: 5,
+    image: "/reviews/3.png",
+    text: `אליהו פלג הוא פנסיון מאוד מומלץ, אמנם זו פעם ראשונה ששמנו את לאקי שם, אבל היחס החם והאכפתיות ותשומת הלב שלאקי קיבל שם, מאוד עשתה עלינו רושם טוב, הפנסיון הזה הוא הפנסיון הכי טוב שנתקלנו עד עכשיו ומהיום
+     והלאה כשנצטרך נשלח לשם את לאקי, לאקי חזר מאוד מרוצה,
+     שמחנו שקיבלנו סרטונים של הכלבב שלנו במשך הזמן שהיה שם,
+      אליקו תודה רבה, אני אמליץ גם לחברים על הפנסיון הזה`,
+  },
+];
+---
+
+<section class="bg-white" id="reviews">
+  <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <h2
+      class="text-center font-heebo text-5xl font-bold tracking-tight sm:text-5xl"
+    >
+      מה אומרים עלינו
+    </h2>
+
+    <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+      {
+        reviews.map((review) => (
+          <blockquote class="rounded-lg bg-gray-100 p-8">
+            <div class="flex items-center gap-4">
+              <img
+                alt="Costumer"
+                src={review.image}
+                class="h-16 w-16 rounded-full object-cover"
+              />
+
+              <div>
+                <div class=" flex justify-center gap-0.5 text-orange-300">
+                  {1 <= review.stars && <Star />}
+                  {2 <= review.stars && <Star />}
+                  {3 <= review.stars && <Star />}
+                  {4 <= review.stars && <Star />}
+                  {5 <= review.stars && <Star />}
+                </div>
+
+                <p class="mt-1 text-lg font-medium text-gray-700">
+                  {review.name}
+                </p>
+              </div>
+            </div>
+
+            <p class="mt-4 line-clamp-2 text-gray-500 sm:line-clamp-none">
+              {review.text}
+            </p>
+          </blockquote>
+        ))
+      }
+    </div>
+  </div>
+</section>

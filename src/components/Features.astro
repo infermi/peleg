@@ -1,0 +1,73 @@
+---
+import Sep from "./Sep.astro";
+
+const features = [
+  {
+    title: "שיטה יחודית",
+    text: `אנו מתמחים באילוף כלבים בצורה אנושית וייחודית,
+     אנו מבינים את שפת הכלבים וצרכיהם בצורה מעמיקה ומקצועית.
+     אנו מאמצים שיטות אילוף חיוביות ויעילות עם תוצאות שנשארות לאורך זמן. אנו לא רק פותרים את הבעיה,
+     אנו מבינים את מקורה ומסבירים לבעלים כיצד למנוע שהיא לא תקרה שוב.`,
+    image: "groupdogs.JPG",
+  },
+  {
+    title: "טיפול יחודי לכל כלב",
+    text: "גישת האימון שלנו מותאמת לצרכי הכלב הייחודיים שלכם. אנו עובדים בקרבתכם כדי לזהות אזורים שדורשים שיפור, ומאמנים מנוסים שלנו ייצרו תוכנית שתתאים לאישיות וסגנון הלמידה של הכלב. זה מבטיח שחבר המשפחה הפרוותי שלכם יקבל תשומת לב אישית וישיג את מטרות האימון שלו.",
+    image: "dog3.JPG",
+  },
+  {
+    title: "למידה כיפית ואינטרקטיבית",
+    text: `ההדרכה שלנו מיועדת להיות מהנה ומעוררת התעניינות עבור הכלב שלכם.
+     אנו מאמינים שכאשר הכלב נהנה, יש לו יותר מוטיבציה ללמוד ולשמור על הלמידה.
+     לכן, המאמנים שלנו משתמשים במשחקים אינטרקטיבים וטכניקות חיוביות
+     כדי ליצור סביבת למידה חיובית עבור חבר הכלב שלכם.
+     על ידי יצירת חוויה מהנה, אנו לא רק עוזרים לכלב ללמוד יותר מהר,
+     אלא גם מבטיחים בניית קשר חזקה יותר בין הכלב לבין בעליו.
+`,
+    image: "playing.JPG",
+  },
+];
+---
+
+<section class="w-full scroll-m-28 bg-white-secondary px-3 py-8" id="features">
+  <h1 class="font-varela text-4xl font-bold md:text-5xl">מה מיוחד בנו</h1>
+  <Sep />
+  <div
+    class="mx-auto mt-5 flex max-w-screen-2xl flex-col gap-y-12 px-3 text-center md:px-10 md:text-right lg:mt-10"
+  >
+    {
+      features.map((feature) => (
+        <div
+          class={`flex w-full flex-grow flex-col items-center justify-center gap-5 p-3 md:flex-1 md:flex-row md:p-10 ${
+            features.indexOf(feature) % 2 == 1 && "bg-white"
+          }`}
+        >
+          <div
+            class={`order-1 w-2/3 md:w-full lg:w-7/12 ${
+              features.indexOf(feature) % 2 == 0 && "md:order-3"
+            }`}
+          >
+            <img
+              src={feature.image}
+              alt=""
+              class="mx-auto  object-cover   md:aspect-square xl:aspect-video"
+            />
+          </div>
+          <div class="order-2 w-full ">
+            <div
+              class={`${
+                features.indexOf(feature) % 2 == 0 ? "ml-auto" : "mr-auto"
+              }  max-w-3xl space-y-4 md:px-4`}
+            >
+              <h1 class="font-varela text-lg font-bold sm:text-2xl lg:text-3xl ">
+                {feature.title}
+              </h1>
+
+              <p class=" text-base sm:text-lg lg:text-xl ">{feature.text}</p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
